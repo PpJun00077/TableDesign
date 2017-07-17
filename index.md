@@ -1,37 +1,66 @@
-## Welcome to GitHub Pages
+## 数据表设计
 
-You can use the [editor on GitHub](https://github.com/PpJun00077/------/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+### 数据表设计需要遵守的规则
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+1. 数据表设计通常需要遵守数据库三范式
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### 数据表设计的步骤
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+1. 对需求进行分析，从而确定系统中所包含的实体。
 
-- Bulleted
-- List
+	所谓实体就是对象，比如商城项目中实体有用户、订单、商品等。
 
-1. Numbered
-2. List
+    一般来说，每个实体相当于数据库的一个表
 
-**Bold** and _Italic_ and `Code` text
+2. 分别找出每个实体的所有与项目有用的属性
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+	比如用户实体属性有：姓名、性别、年龄、身高、三围等。但是与商城项目有关的是姓名、性别，可能年龄，身高、三围作用不大。
 
-### Jekyll Themes
+3. 保证每个实体有一个主属性，主属性必须能唯一地描述每个记录
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/PpJun00077/------/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+4. 确定实体之间的关系
 
-### Support or Contact
+5.  根据实体、属性，画出每个实体ER图
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+6.  设计局部ER模式
+
+	在设计初步E-R图时，要尽量充分地把组织中各部门对信息的要求集中起来，而不需要考虑数据的冗余问题。
+
+7. 设计全局E-R模式
+
+   所有局部ER模式都设计好之后，接下来就是把他们综合成单一的全局概念结构。
+
+8. 全局ER模式的优化
+
+  在得到全局ER模式后，为了提高数据库系统的效率，还应进一步依赖需求对ER模式进行优化。
+
+  一个好的全局ER模式，除能准确、全面地反映用户功能需求外，还应满足下列条件：
+
+		1、 实体的个数要尽可能少
+		2、 实体的属性个数尽可能少
+		
+
+9. 逻辑结构设计
+
+   逻辑结构设计的任务是把建立的全局E-R图，转换成关系模式，就是生成数据库中的表，并确定表的字段。
+
+10. ER图向关系模型的转化
+
+   在上面实体之间的关系的基础上，将实体、实体的属性和实体之间的联系转换为关系模型。
+
+	说白了，就是根据实体的关系建表
+
+11. 设计数据表结构
+
+	这个阶段，需要决定数据表的名字、字段名字，字段类型的选择，主键，索引，表引擎，表字符集等内容。
+
+12. 编写建表语句
+
+
+
+
+
+	
